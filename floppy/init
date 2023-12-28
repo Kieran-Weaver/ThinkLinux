@@ -1,0 +1,5 @@
+#!/bin/sh
+export HOME=/home PATH=/bin:/sbin
+mount -t devtmpfs dev dev
+mount -t proc proc proc
+/bin/sh
