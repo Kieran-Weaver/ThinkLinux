@@ -1,0 +1,15 @@
+diff -rNBu linux-6.1.26/drivers/pci/probe.c linux2-6.1.26/drivers/pci/probe.c
+--- linux-6.1.26/drivers/pci/probe.c	2023-04-26 05:28:44.000000000 -0700
++++ linux2-6.1.26/drivers/pci/probe.c	2023-05-23 20:59:58.201917705 -0700
+@@ -2363,6 +2363,11 @@
+ bool pci_bus_generic_read_dev_vendor_id(struct pci_bus *bus, int devfn, u32 *l,
+ 					int timeout)
+ {
++	u8 hdr_type;
++	if (pci_bus_read_config_byte(bus, devfn, PCI_HEADER_TYPE, &hdr_type))
++		return false;
++	*l = hdr_type;
++
+ 	if (pci_bus_read_config_dword(bus, devfn, PCI_VENDOR_ID, l))
+ 		return false;
+ 

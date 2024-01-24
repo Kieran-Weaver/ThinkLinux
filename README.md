@@ -25,6 +25,10 @@ Requires a cross compiler for whichever target you want. Examples are:
 - i486-musl
 - i686-musl
 
+### Bootable CDROM
+
+The bootable CD is built with [buildroot](https://buildroot.org/). Place buildroot.config into the buildroot root dir as .config, and copy the other files from bootcd/ into the buildroot root dir.
+
 ### Floppy Image
 
 Download the most recent versions of [toybox](https://landley.net/toybox/) and [the linux kernel](https://cdn.kernel.org/pub/linux/kernel/v6.x/) and extract them to toybox/ and linux/ respectively.
